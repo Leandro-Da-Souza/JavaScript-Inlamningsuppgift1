@@ -67,7 +67,24 @@ main form button {
     border: 3px solid #666;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+}
+
 #gallery {
     display: grid;
+    gap: 1px;
+    height: 100%;
+    width: 100%;
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
+}
+
+#gallery img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
 }

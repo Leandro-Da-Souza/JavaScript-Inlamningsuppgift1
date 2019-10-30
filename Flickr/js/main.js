@@ -6,6 +6,8 @@ form.addEventListener('submit', e => {
     let search = document.getElementById('search').value;
     let gallery = document.getElementById('gallery');
 
+    gallery.innerHTML = '';
+
     if (search === '') {
         alert('please make a valid search');
         return;
