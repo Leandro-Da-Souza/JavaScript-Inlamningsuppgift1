@@ -19,14 +19,39 @@ form.addEventListener('submit', e => {
             .then(data => data.photos.photo)
             .then(photos =>
                 photos.forEach(photo => {
-                    console.log(photo);
+                    // console.log(photo);
                     let output = '';
                     output += `
-                        <img src="https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg">
+                        <img id="photo" src="https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg">
                     `;
                     // console.log(output);
                     gallery.innerHTML += output;
+                    // let photo = document.querySelector('#photo');
                 })
             );
     }
 });
+
+gallery.addEventListener('click', e => {
+    let photos = Array.from(document.querySelectorAll('#photo'));
+    photos.forEach(photo => {
+        if (e.target === photo) {
+            console.log(photo.src);
+            let div = document.createElement('div');
+            div.innerHTML = `
+            <img src="${photo.src}">
+            `;
+            document.body.appendChild(div);
+            div.classList.toggle('lightbox');
+        }
+    });
+});
+
+if (document.body.hasChildNodes('div[class="lightbox"]')) {
+    document.body.setAttribute('style', 'overflow:hidden');
+    // let lightBox = document.querySelector('.lightbox');
+
+    // lightBox.addEventListener('click', () => {
+    //     console.log(123);
+    // });
+}
