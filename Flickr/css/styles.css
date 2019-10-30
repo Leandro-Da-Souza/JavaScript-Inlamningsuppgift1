@@ -87,6 +87,11 @@ main form button {
     width: 100%;
     height: 50vh;
     object-fit: cover;
+    cursor: pointer;
+}
+
+#gallery img:hover {
+    opacity: 0.8;
 }
 
 .lightbox {
