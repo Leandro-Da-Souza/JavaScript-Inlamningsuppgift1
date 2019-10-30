@@ -15,3 +15,59 @@ h5,
 h6 {
     font-family: 'Staatliches', cursive;
 }
+
+header {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/header.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    font-size: 3.5rem;
+    mix-blend-mode: darken;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+main form {
+    display: grid;
+    width: 50%;
+    margin: 10px 0;
+}
+
+main form input {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+main form button {
+    padding: 3px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    /* font-style: italic; */
+    font-size: 0.8rem;
+    border: 3px solid #666;
+}
+
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
