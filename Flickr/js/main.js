@@ -26,6 +26,7 @@ form.addEventListener('submit', e => {
                     `;
                     // console.log(output);
                     gallery.innerHTML += output;
+                    document.getElementById('search').value = '';
                     // let photo = document.querySelector('#photo');
                 })
             );
@@ -39,19 +40,13 @@ gallery.addEventListener('click', e => {
             console.log(photo.src);
             let div = document.createElement('div');
             div.innerHTML = `
-            <img src="${photo.src}">
+            <img src="${photo.src}" >
             `;
             document.body.appendChild(div);
-            div.classList.toggle('lightbox');
+            div.className = 'lightbox';
+            div.addEventListener('click', () => {
+                document.body.removeChild(div);
+            });
         }
     });
 });
-
-if (document.body.hasChildNodes('div[class="lightbox"]')) {
-    document.body.setAttribute('style', 'overflow:hidden');
-    // let lightBox = document.querySelector('.lightbox');
-
-    // lightBox.addEventListener('click', () => {
-    //     console.log(123);
-    // });
-}
