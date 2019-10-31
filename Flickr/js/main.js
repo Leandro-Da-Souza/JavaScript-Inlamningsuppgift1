@@ -15,7 +15,7 @@ form.addEventListener('submit', e => {
     } else {
         loader.style.display = 'block';
         fetch(
-            `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=${apiKey}&text=${search}&per_page=20&format=json&nojsoncallback=1&safe_search=2'`
+            `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=${apiKey}&text=${search}&per_page=20&format=json&nojsoncallback=1&safe_search=1'`
         )
             .then(res => res.json())
             .then(data => data.photos.photo)
