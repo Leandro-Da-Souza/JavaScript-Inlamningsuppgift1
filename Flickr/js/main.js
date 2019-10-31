@@ -15,11 +15,9 @@ form.addEventListener('submit', e => {
     } else {
         loader.style.display = 'block';
         fetch(
-            `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=${apiKey}&text=${search}&per_page=20&format=json&nojsoncallback=1'`
+            `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=${apiKey}&text=${search}&per_page=20&format=json&nojsoncallback=1&safe_search=2'`
         )
-            .then(res => {
-                return res.json();
-            })
+            .then(res => res.json())
             .then(data => data.photos.photo)
             .then(photos =>
                 photos.forEach(photo => {
@@ -34,7 +32,14 @@ form.addEventListener('submit', e => {
                     document.getElementById('search').value = '';
                     // let photo = document.querySelector('#photo');
                 })
-            );
+            )
+            .catch(err => {
+                console.group(err);
+                loader.style.display = 'none';
+                gallery.innerHTML = `
+                    <p class="error">Something went wrong ;(</p>
+                `;
+            });
     }
 });
 
