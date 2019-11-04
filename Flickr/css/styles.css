@@ -18,22 +18,22 @@ h6 {
 
 header {
     display: flex;
-    height: 100px;
+    height: 120px;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/header.jpg);
+    background-image: url(../img/header3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 50% 70%;
     margin-bottom: 10px;
 }
 
 header h1 {
-    color: white;
-    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.9);
     padding: 5px 10px;
     font-size: 3.5rem;
-    mix-blend-mode: darken;
+    mix-blend-mode: multiply;
 }
 
 main {
@@ -65,6 +65,11 @@ main form button {
     /* font-style: italic; */
     font-size: 0.8rem;
     border: 3px solid #666;
+    margin-top: 5px;
+}
+
+main form button:hover {
+    opacity: 0.9;
 }
 
 .container {
@@ -81,6 +86,9 @@ main form button {
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-flow: dense;
+    /* border: 3px solid #000; */
+    padding: 10px;
+    margin-top: 10px;
 }
 
 #gallery img {
@@ -88,6 +96,7 @@ main form button {
     height: 50vh;
     object-fit: cover;
     cursor: pointer;
+    animation: fadeIn 1s ease-in;
 }
 
 #gallery img:hover {
@@ -110,8 +119,6 @@ main form button {
     align-items: center;
 }
 
-/* CSS LOADER ANIMATION */
-
 .loader {
     margin-top: 10vh;
     border: 10px solid #f3f3f3;
@@ -123,6 +130,14 @@ main form button {
     display: none;
 }
 
+.error {
+    grid-column: 2;
+}
+
+/* CSS LOADER ANIMATION */
+
+/* ANIMATIONS */
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -132,8 +147,13 @@ main form button {
     }
 }
 
-.error {
-    grid-column: 2;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* MEDIA QUERIES */
