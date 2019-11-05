@@ -123,6 +123,10 @@ main form button:hover {
     align-items: center;
 }
 
+.lightbox > img {
+    animation: scaleUp 300ms ease-in-out;
+}
+
 .loader {
     margin-top: 10vh;
     border: 10px solid #f3f3f3;
@@ -146,7 +150,7 @@ main form button:hover {
     font-family: 'Monoton', cursive;
     display: none;
     font-size: 3rem;
-    animation: fadeIn 1s ease-in;
+    animation: fadeIn 2s ease;
 }
 
 /* CSS LOADER ANIMATION */
@@ -168,6 +172,15 @@ main form button:hover {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
     }
 }
 
