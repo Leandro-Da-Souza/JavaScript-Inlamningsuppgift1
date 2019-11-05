@@ -2,7 +2,7 @@
 const form = document.getElementById('form');
 
 form.addEventListener('submit', e => {
-    // Förhindra att formuläret skickas
+    // Förhindra att formuläret försöker skickas till en server
     e.preventDefault();
 
     // Variabler = ApiNyckel, sökvärde, galleriet, loader och en header
@@ -76,17 +76,23 @@ form.addEventListener('submit', e => {
     }
 });
 
+// Lightbox logik
 gallery.addEventListener('click', e => {
+    // skapa en array för alla foton
     let photos = Array.from(document.querySelectorAll('#photo'));
+    // använd en foreach för alla foton
     photos.forEach(photo => {
+        // se till att följande logik händer endast ifall kliket är ett foto
         if (e.target === photo) {
-            // console.log(photo.src);
+            // skapa en div som innehåller fotot
             let div = document.createElement('div');
             div.innerHTML = `
             <img src="${photo.src}" >
             `;
             document.body.appendChild(div);
             div.className = 'lightbox';
+
+            // lägg en lyssnare på diven för att ta bort den från kroppen
             div.addEventListener('click', () => {
                 document.body.removeChild(div);
             });

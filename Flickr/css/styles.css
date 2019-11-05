@@ -151,9 +151,8 @@ main form button:hover {
     display: none;
     font-size: 3rem;
     animation: fadeIn 2s ease;
+    user-select: none;
 }
-
-/* CSS LOADER ANIMATION */
 
 /* ANIMATIONS */
 
