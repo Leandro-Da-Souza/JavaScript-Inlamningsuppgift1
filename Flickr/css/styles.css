@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
 
 * {
     margin: 0;
@@ -29,11 +30,11 @@ header {
 }
 
 header h1 {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.9);
+    color: #000;
+    background: rgba(255, 255, 255, 0.6);
     padding: 5px 10px;
     font-size: 3.5rem;
-    mix-blend-mode: multiply;
+    mix-blend-mode: lighten;
 }
 
 main {
@@ -51,21 +52,22 @@ main form {
 }
 
 main form input {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 5px;
 }
 
 main form button {
-    padding: 3px;
-    background-color: #333;
+    padding: 10px;
+    background-color: #666;
     color: #fff;
     cursor: pointer;
     /* font-style: italic; */
     font-size: 0.8rem;
-    border: 3px solid #666;
+    /* border: 1px solid #333; */
     margin-top: 5px;
+    border-radius: 5px;
 }
 
 main form button:hover {
@@ -89,6 +91,7 @@ main form button:hover {
     /* border: 3px solid #000; */
     padding: 10px;
     margin-top: 10px;
+    user-select: none;
 }
 
 #gallery img {
@@ -97,6 +100,7 @@ main form button:hover {
     object-fit: cover;
     cursor: pointer;
     animation: fadeIn 1s ease-in;
+    user-select: none;
 }
 
 #gallery img:hover {
@@ -131,7 +135,18 @@ main form button:hover {
 }
 
 .error {
-    grid-column: 2;
+    display: flex;
+}
+
+.error > * {
+    margin: 0 auto;
+}
+
+#galleryHeader {
+    font-family: 'Monoton', cursive;
+    display: none;
+    font-size: 3rem;
+    animation: fadeIn 1s ease-in;
 }
 
 /* CSS LOADER ANIMATION */
@@ -161,6 +176,14 @@ main form button:hover {
 @media (max-width: 1000px) {
     #gallery {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+    main h2,
+    main p {
+        text-align: center;
     }
 }
 
