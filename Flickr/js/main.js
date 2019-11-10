@@ -109,7 +109,9 @@ gallery.addEventListener('click', e => {
 window.onscroll = function() {
     footerScroll();
 };
+
 function footerScroll() {
+    // om user har scrollat ner 50px från fönster top lägg till följande style och animation
     if (
         document.body.scrollTop > 50 ||
         document.documentElement.scrollTop > 50
