@@ -1,5 +1,6 @@
-// Global variabel där jag hämtat formuläret för att lägga en lyssnare
+// Globala variabler där jag hämtat formuläret och footer för att lägga lyssnare
 const form = document.getElementById('form');
+const footer = document.querySelector('#footer');
 
 form.addEventListener('submit', e => {
     // Förhindra att formuläret försöker skickas till en server
@@ -11,7 +12,11 @@ form.addEventListener('submit', e => {
     let gallery = document.getElementById('gallery');
     let loader = document.querySelector('.loader');
     let header = document.querySelector('#galleryHeader');
+    let imgPerPage = document.querySelector('#per_page').value;
 
+    if (imgPerPage == null || imgPerPage == undefined || imgPerPage == '') {
+        imgPerPage = 10;
+    }
     // gömma headern och galleriet när en sökning görs för att sedan fadea in dem.
     header.style.display = 'none';
     gallery.style.border = 'none';
@@ -28,7 +33,7 @@ form.addEventListener('submit', e => {
         loader.style.display = 'block';
         // hämta data från API
         fetch(
-            `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=${apiKey}&text=${search}&per_page=20&format=json&nojsoncallback=1&safe_search=3'`
+            `https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=${apiKey}&text=${search}&per_page=${imgPerPage}&format=json&nojsoncallback=1&safe_search=3'`
         )
             // konvertera JSON data från responset
             .then(res => res.json())
@@ -87,8 +92,8 @@ gallery.addEventListener('click', e => {
             // skapa en div som innehåller fotot
             let div = document.createElement('div');
             div.innerHTML = `
-            <img src="${photo.src}" >
-            `;
+                <img src="${photo.src}" >
+                `;
             document.body.appendChild(div);
             div.className = 'lightbox';
 
@@ -99,3 +104,20 @@ gallery.addEventListener('click', e => {
         }
     });
 });
+
+// Fade IN Footer on scroll
+window.onscroll = function() {
+    footerScroll();
+};
+function footerScroll() {
+    if (
+        document.body.scrollTop > 50 ||
+        document.documentElement.scrollTop > 50
+    ) {
+        footer.style.display = 'flex';
+        footer.style.animation = 'fadeIn 500ms ease-in';
+    } else {
+        footer.style.display = 'none';
+        footer.style.animation = 'fadeOut 500ms ease';
+    }
+}

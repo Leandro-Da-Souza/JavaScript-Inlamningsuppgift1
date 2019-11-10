@@ -53,18 +53,20 @@ main form {
 
 main form input {
     padding: 10px;
+    height: 3vh;
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 5px;
 }
 
 main form button {
-    padding: 10px;
-    background-color: #666;
+    padding: 5px;
+    background-color: #333;
     color: #fff;
     cursor: pointer;
+    height: 4vh;
     /* font-style: italic; */
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     /* border: 1px solid #333; */
     margin-top: 5px;
     border-radius: 5px;
@@ -154,6 +156,41 @@ main form button:hover {
     user-select: none;
 }
 
+#per_page {
+    padding: 10px;
+    border: 1px black solid;
+    height: 3vh;
+    width: 100%;
+    margin-top: 1px;
+    border-radius: 5px;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    display: none;
+    justify-content: space-around;
+    width: 100vw;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+footer > * {
+    font-size: 0.8rem;
+}
+
+footer > a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer > a:hover {
+    opacity: 0.5;
+}
+
 /* ANIMATIONS */
 
 @keyframes spin {
@@ -183,6 +220,15 @@ main form button:hover {
     }
 }
 
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 1000px) {
@@ -191,7 +237,7 @@ main form button:hover {
     }
 
     header h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     main h2,
     main p {

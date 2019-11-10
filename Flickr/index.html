@@ -8,7 +8,7 @@
         <title>Flickr API Search</title>
     </head>
     <body>
-        <header>
+        <header id="top">
             <h1>Search Some Photos With The Flickr API</h1>
         </header>
         <main>
@@ -26,6 +26,14 @@
                     id="search"
                     placeholder="Make Your Search..."
                 />
+                <select name="per_page" id="per_page">
+                    <option value="" disabled selected
+                        >Photos Per Page...</option
+                    >
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
                 <button type="submit" id="search">Search</button>
             </form>
             <div class="loader"></div>
@@ -34,6 +42,10 @@
                 <div class="gallery" id="gallery"></div>
             </div>
         </main>
+        <footer id="footer">
+            <p>&copy; Leandro Da Souza</p>
+            <a href="#top">Back Up</a>
+        </footer>
         <script src="./js/main.js"></script>
     </body>
 </html>
