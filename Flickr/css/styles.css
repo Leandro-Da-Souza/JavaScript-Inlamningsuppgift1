@@ -74,6 +74,7 @@ main form button {
 
 main form button:hover {
     opacity: 0.9;
+    text-decoration: underline;
 }
 
 .container {
@@ -189,6 +190,7 @@ footer > a {
 
 footer > a:hover {
     opacity: 0.5;
+    text-decoration: underline;
 }
 
 /* ANIMATIONS */

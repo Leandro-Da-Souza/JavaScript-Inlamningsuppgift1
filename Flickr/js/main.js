@@ -14,6 +14,7 @@ form.addEventListener('submit', e => {
     let header = document.querySelector('#galleryHeader');
     let imgPerPage = document.querySelector('#per_page').value;
 
+    // om imgPerPage inte har något värde lägg en default på 10 bilder
     if (imgPerPage == null || imgPerPage == undefined || imgPerPage == '') {
         imgPerPage = 10;
     }
@@ -26,7 +27,7 @@ form.addEventListener('submit', e => {
 
     // en enkel validering för att se till formuläret inte är tomt
     if (search === '') {
-        alert('please make a valid search');
+        alert('please enter something in the searchbar');
         return;
     } else {
         // en loader som sätts när en sökning görs
@@ -42,6 +43,7 @@ form.addEventListener('submit', e => {
             .then(photos =>
                 // forEach funktion för definera logik för varje iteration (foto) vi får tillbaka från ovanstående objekt.
                 photos.forEach(photo => {
+                    console.log(photo);
                     // Göm loader
                     loader.style.display = 'none';
 
