@@ -83,7 +83,7 @@ form.addEventListener('submit', e => {
     }
 });
 
-// Lightbox logik
+// Lightbox logik, lägg en event på galleriet
 gallery.addEventListener('click', e => {
     // skapa en array för alla foton
     let photos = Array.from(document.querySelectorAll('#photo'));
@@ -121,7 +121,7 @@ function footerScroll() {
         footer.style.display = 'flex';
         footer.style.animation = 'fadeIn 500ms ease-in';
     } else {
-        footer.style.display = 'none';
         footer.style.animation = 'fadeOut 500ms ease';
+        footer.style.display = 'none';
     }
 }
